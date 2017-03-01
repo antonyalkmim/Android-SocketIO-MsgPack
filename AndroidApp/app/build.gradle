@@ -24,6 +24,13 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+    }
 }
 
 dependencies {
@@ -38,4 +45,5 @@ dependencies {
         exclude group: 'org.json', module: 'json'
     }
     compile 'org.msgpack:msgpack-core:0.8.12'
+    compile 'org.msgpack:jackson-dataformat-msgpack:0.8.12'
 }
