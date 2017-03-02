@@ -13,7 +13,7 @@ io.on('connection', (client) => {
 	//   next(new Error('Authentication error'));
 	// });
 
-	client.on('new request', (data) => {  
+	client.on('new user request', (data) => {  
 		var obj = msgpack.unpack(data);
 		
 		console.log("Received Data: ", data);
@@ -27,7 +27,7 @@ io.on('connection', (client) => {
 
 		console.log("Packed Data: ", packedData);
 		
-		client.emit('new response', packedData);
+		client.emit('new user response', packedData);
 	});
 
 });

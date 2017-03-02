@@ -2,6 +2,8 @@ package com.example.antonyalkmim.androidsocketexample;
 
 import android.app.Application;
 
+import com.example.antonyalkmim.androidsocketexample.network.ApiService;
+
 import java.net.URISyntaxException;
 
 import io.socket.client.IO;
@@ -10,17 +12,15 @@ import io.socket.client.Socket;
 
 public class SocketApplication extends Application {
 
-    private Socket socket;
-    {
-        try {
-            socket = IO.socket("http://192.168.0.12:3000");
-        } catch (URISyntaxException e) {
-            throw new RuntimeException(e);
-        }
+    private ApiService mApiService;
+
+    public ApiService getDefaultApi() {
+        return mApiService;
     }
 
-    public Socket getSocket() {
-        return socket;
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        mApiService = new ApiService(getString(R.string.api_address));
     }
-
 }

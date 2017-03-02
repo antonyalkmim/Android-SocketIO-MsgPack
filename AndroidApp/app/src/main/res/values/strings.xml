@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AndroidSocketExample</string>
+    <string name="api_address">http://192.168.0.12:3000</string>
 </resources>
